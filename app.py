@@ -68,7 +68,7 @@ def init_firebase():
         except Exception as e:
             st.error(f"حدث خطأ في الاتصال بـ Firebase: {e}")
             return None
-    return firestore.client()
+return firestore.client(database="ai-studio-02f6fc2f-3933-4b87-b122-a21a9e98dba8")
 
 db = init_firebase()
 
