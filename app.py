@@ -66,9 +66,10 @@ def init_firebase():
             cred = credentials.Certificate(key_dict)
             firebase_admin.initialize_app(cred)
         except Exception as e:
-            st.error(f"حدث خطأ في الاتصال بـ Firebase: {e}")
+            st.error(f"حدث خطأ في الاتصال: {e}")
             return None
-    return firestore.client(database="ai-studio-02f6fc2f-3933-4b87-b122-a21a9e98dba8")
+    # العودة للوضع الافتراضي سيدي لتجنب تعارض الإصدارات
+    return firestore.client()
 db = init_firebase()
 
 # الواجهة الرئيسية
