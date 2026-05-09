@@ -58,9 +58,9 @@ st.markdown("""
 
 # تهيئة Firebase
 @st.cache_resource
+@st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        # قراءة مفتاح Firebase من الأسرار (Secrets)
         try:
             key_dict = dict(st.secrets["firebase_service_account"])
             cred = credentials.Certificate(key_dict)
@@ -68,8 +68,7 @@ def init_firebase():
         except Exception as e:
             st.error(f"حدث خطأ في الاتصال بـ Firebase: {e}")
             return None
-return firestore.client(database="ai-studio-02f6fc2f-3933-4b87-b122-a21a9e98dba8")
-
+    return firestore.client(database="ai-studio-02f6fc2f-3933-4b87-b122-a21a9e98dba8")
 db = init_firebase()
 
 # الواجهة الرئيسية
