@@ -62,7 +62,7 @@ def init_firebase():
     if not firebase_admin._apps:
         # قراءة مفتاح Firebase من الأسرار (Secrets)
         try:
-            key_dict = json.loads(st.secrets["firebase_service_account"])
+            key_dict = dict(st.secrets["firebase_service_account"])
             cred = credentials.Certificate(key_dict)
             firebase_admin.initialize_app(cred)
         except Exception as e:
